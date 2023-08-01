@@ -144,6 +144,10 @@ module GraphQL
           object_cache_key
         ]
 
+        Rails.logger.debug("GraphQL::FragmentCache: simple_path_cache_key: #{simple_path_cache_key}")
+        Rails.logger.debug("GraphQL::FragmentCache: implicit_cache_key_plain: #{schema_cache_key}/#{query_cache_key}")
+        Rails.logger.debug("GraphQL::FragmentCache: object_cache_key: #{object_cache_key}")
+
         key_parts
           .compact
           .map { |key_part| key_part.tr("/", "-") }
