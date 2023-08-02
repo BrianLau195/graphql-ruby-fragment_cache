@@ -568,15 +568,15 @@ describe "#cache_fragment" do
       post2.title = "new object test 2"
     end
 
-    it "returns cached results" do
+    it "returns updated results due to default include object key in cache key" do
       expect(execute_query.dig("data", "posts")).to eq([
         {
           "id" => "1",
-          "cachedTitle" => "object test 1"
+          "cachedTitle" => "new object test 1"
         },
         {
           "id" => "2",
-          "cachedTitle" => "object test 2"
+          "cachedTitle" => "new object test 2"
         }
       ])
     end
