@@ -48,6 +48,8 @@ module GraphQL
 
         fragment = Fragment.new(context_to_use, **options)
 
+        Rails.logger.debug("GraphQL::FragmentCache: cache_key: #{fragment.cache_key}")
+
         GraphQL::FragmentCache::Schema::LazyCacheResolver.new(fragment, context_to_use, object_to_cache, &block)
       end
     end
